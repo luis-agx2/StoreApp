@@ -1,3 +1,10 @@
 .container-fluid{
     margin-top:5% !important;
 }
+
+@media (max-width: 720px) {
+    .container-fluid .row{
+        display: flex !important;
+        flex-grow: 1;
+    }
+}

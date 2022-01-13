@@ -1,4 +1,4 @@
-<div class="col-9 float-end px-4">
+<div class="col-9 float-end px-4 m-3">
 
     <div *ngIf="!usuarios.length; else noVacia" class="alert alert-secondary" role="alert">
         Espera un momento...
@@ -8,7 +8,7 @@
 
         <div class="d-flex flex-wrap">
 
-            <div class="card col-5 m-sm-4 m-md-2" *ngFor="let usuario of usuarios" [routerLink]="['/usuarios/ver', usuario.id]">
+            <div class="card col-5 m-1 flex-grow-1" *ngFor="let usuario of usuarios" [routerLink]="['/usuarios/ver', usuario.id]">
                 <div class="card-header">
                     <strong>Usuario: {{usuario.username}}</strong>
                 </div>

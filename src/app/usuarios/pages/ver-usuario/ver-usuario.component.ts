@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../services/usuarios.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from "rxjs/operators";
 import { UsuarioResponse } from '../../interfaces/usuariosResponse.interface';
 
@@ -15,7 +15,8 @@ export class VerUsuarioComponent implements OnInit {
 
   constructor(
     private usuariosService: UsuariosService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +24,15 @@ export class VerUsuarioComponent implements OnInit {
       switchMap(({id}) => this.usuariosService.getUsuario(id))
     ).subscribe(data => {
       this.usuario = data;
+    })
+  }
+
+  eliminarUsuario(){
+    this.activatedRoute.params.pipe(
+      switchMap(({id}) => this.usuariosService.deleteUsuario(id))
+    ).subscribe(data => {
+      this.usuario = data;
+      this.router.navigate(['/usuarios']);
     })
   }
 

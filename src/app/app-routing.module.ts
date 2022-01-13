@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanLoad } from '@angular/router';
 import { PageErrorComponent } from './shared/page-error/page-error.component';
 import { UsuariosModule } from './usuarios/usuarios-module.module';
+import { AuthGuard } from './auth/guards/auth.guard';
+import { LoginComponent } from './auth/pages/login/login.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: LoginComponent
+  },
   {
     path: 'carritos',
     loadChildren: () => import('./carrito/carrito-module.module').then(m => m.CarritoModule)
@@ -15,7 +21,9 @@ const routes: Routes = [
   },
   {
     path: 'productos',
-    loadChildren: () => import('./productos/productos-module.module').then(m => m.ProductosModule)
+    loadChildren: () => import('./productos/productos-module.module').then(m => m.ProductosModule),
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard]
   },
   {
     path: 'usuarios',

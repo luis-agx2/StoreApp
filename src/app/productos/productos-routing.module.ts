@@ -13,6 +13,7 @@ const routes: Routes = [
     children: [
       {path: 'listado', component: ListaProductosComponent},
       {path: 'agregar', component: AgregarProductosComponent},
+      {path: 'editar/:id', component: AgregarProductosComponent},
       {path: 'ver/:id', component: VerProductoComponent},
       {path: 'categorias', component: CategoriaProductosComponent},
       {path: '**', redirectTo: 'listado'}

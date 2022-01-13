@@ -1,7 +1,7 @@
 <div class="col-9 float-end px-4">
     <div class="mt-sm-4 mt-md-2 mt-lg-1">
         <span *ngFor="let categoria of listaCategorias" 
-                class="badge bg-secondary mt-3 m-1"
+                [class]="getClaseCss(categoria)"
                 (click)="busqueda(categoria)">
             {{categoria | uppercase}}
         </span>

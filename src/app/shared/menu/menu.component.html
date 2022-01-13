@@ -17,9 +17,11 @@
                     <a class="nav-link">Carritos</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
+
+            <span class="text-white me-4" *ngIf="auth[0] && auth[1]">{{user.username}}</span>
+            <button class="btn btn-outline-light me-3" (click)="cerrarSesion()">Salir</button>
+
         </div>
     </div>
+
 </nav>

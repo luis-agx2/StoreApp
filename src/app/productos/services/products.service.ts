@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { environment } from "src/environments/environment";
+import { environment } from 'src/environments/environment.prod';
 import { ProductsResponse } from '../interfaces/productsResponse.interface';
 
 @Injectable({
@@ -37,7 +37,7 @@ export class ProductsService {
             });
     }
 
-    public postProducto(producto: ProductsResponse): Observable<ProductsResponse> {
+    postProducto(producto: ProductsResponse): Observable<ProductsResponse> {
 
         let header: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json; charset=UTF-8');
     
@@ -46,4 +46,9 @@ export class ProductsService {
         //Here is the point!
         return this.http.post<ProductsResponse>(`${this.urlBase}/products`, object, { headers: header });
     }
+
+    deleteProducto(id: number): Observable<ProductsResponse> {
+        return this.http.delete<ProductsResponse>(`${this.urlBase}/products/${id}`);
+    }
+
 }

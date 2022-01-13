@@ -3,10 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/productos/services/products.service';
 import { switchMap } from "rxjs/operators";
 import { CarritosResponse } from '../../interfaces/carritosResponse.interface';
-import { CarritosService } from '../services/carritos.service';
 import { UsuariosService } from '../../../usuarios/services/usuarios.service';
 import { UsuarioResponse } from '../../../usuarios/interfaces/usuariosResponse.interface';
 import { ProductsResponse } from '../../../productos/interfaces/productsResponse.interface';
+import { CarritosService } from '../../services/carritos.service';
 
 @Component({
   selector: 'app-ver-carrito',

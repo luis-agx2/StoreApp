@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { switchMap } from "rxjs/operators";
 import { ProductsResponse } from '../../interfaces/productsResponse.interface';
@@ -14,7 +14,8 @@ export class VerProductoComponent implements OnInit {
 
   constructor(
     private productService: ProductsService,
-    private activedRoute: ActivatedRoute) { }
+    private activedRoute: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.activedRoute.params
@@ -42,5 +43,16 @@ export class VerProductoComponent implements OnInit {
     }
 
     return htmlBase;
+  }
+
+  eliminarProducto(){
+    this.activedRoute.params
+      .pipe(
+        switchMap(({ id }) => this.productService.deleteProducto(id))
+      )
+      .subscribe(data => {
+        this.producto = data;
+        this.router.navigate(['/productos']);
+      })
   }
 }

@@ -1,8 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { ProductsResponse } from "src/app/productos/interfaces/productsResponse.interface";
-import { environment } from "src/environments/environment";
+import { environment } from 'src/environments/environment.prod';
 import { UsuarioResponse } from '../interfaces/usuariosResponse.interface';
 
 @Injectable({
@@ -35,5 +34,9 @@ export class UsuariosService {
     
         //Here is the point!
         return this.http.post<UsuarioResponse>(`${this.urlBase}/users`, object, { headers: header });
+    }
+
+    deleteUsuario(id: number): Observable<UsuarioResponse> {
+        return this.http.delete<UsuarioResponse>(`${this.urlBase}/users/${id}`);
     }
 }
