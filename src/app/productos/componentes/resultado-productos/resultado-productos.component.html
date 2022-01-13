@@ -1,0 +1,33 @@
+<div class="col-9 float-end px-4">
+
+    <div *ngIf="!productos.length; else noVacia" class="alert alert-secondary" role="alert">
+        Espera un momento...
+    </div>
+
+    <ng-template #noVacia>
+
+        <div class="card mb-1 col-11" *ngFor="let producto of productos">
+            <div class="d-flex justify-content-end me-1">
+                <!-- <i class="bi bi-three-dots-vertical"></i> -->
+            </div>
+            <div class="row g-0" [routerLink]="['/productos/ver', producto.id]">
+                <div class="col-md-3 m-1 d-flex justify-content-center">
+                    <img [src]="producto.image" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{producto.title | uppercase}}</h5>
+                        <p class="card-subtitle">CATEGORÍA: <small>{{producto.category | titlecase}}</small></p>
+                        <p class="card-text d-flex justify-content-between">
+                            <span class="text-muted" [innerHtml]=evaluar(producto.rating!.rate)></span>
+                            <small class="text-muted">{{producto.price | currency}}</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ng-template>
+
+
+</div>

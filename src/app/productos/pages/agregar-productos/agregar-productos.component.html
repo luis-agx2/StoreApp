@@ -1,1 +1,40 @@
-<p>agregar-productos works!</p>
+<div class="col-9 float-end px-4 mt-2">
+    <div class="row">
+        <div class="mb-3 col-8">
+            <label for="formGroupExampleInput" class="form-label">Titulo</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder"
+                name="title" [(ngModel)]="producto.title">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col-8">
+            <label for="formGroupExampleInput2" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder"
+                name="description" [(ngModel)]="producto.description">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col-4">
+            <label for="formGroupExampleInput" class="form-label">Precio</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder"
+                name="price" [(ngModel)]="producto.price">
+        </div>
+
+        <div class="col-4">
+            <label for="inputState" class="form-label">Categoría</label>
+            <select id="inputState" class="form-select" name="category" [(ngModel)]="producto.category">
+                <option selected>Choose...</option>
+                <option>...</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-5 mt-3 col-8">
+            <input type="file" class="form-control" id="inputGroupFile02" name="image" [(ngModel)]="producto.image">
+        </div>
+    </div>
+    <button class="btn btn-primary col-8" (click)="insertarProducto()">Submit</button>
+</div>
