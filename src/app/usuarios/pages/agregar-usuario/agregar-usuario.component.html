@@ -1,1 +1,72 @@
-<p>agregar-usuario works!</p>
+<div class="col-9 float-end px-4">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <form class="row g-3">
+
+                    <p class="h4">Información de cuenta</p>
+                    <div class="col-md-4">
+                        <label for="inputEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" name="email"
+                            [(ngModel)]="newUser.email">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputUser" class="form-label">User</label>
+                        <input type="text" class="form-control" id="inputUser" name="username"
+                            [(ngModel)]="newUser.username">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="inputPassword4" name="password"
+                            [(ngModel)]="newUser.password">
+                    </div>
+
+                    <hr />
+                    <p class="h4">Información personal</p>
+                    <div class="col-md-4">
+                        <label for="inputFirstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="inputFirstName" name="firstname"
+                            [(ngModel)]="newUserName.firstname">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputLastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="inputLastName" name="lastname"
+                            [(ngModel)]="newUserName.lastname">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputPhone" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" id="inputPhone" name="phone"
+                            [(ngModel)]="newUser.phone">
+                    </div>
+
+                    <hr />
+                    <p class="h4">Información de domicilio</p>
+                    <div class="col-md-3">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="inputCity" name="city"
+                            [(ngModel)]="newUserAddress.city">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputCity" class="form-label">Street</label>
+                        <input type="text" class="form-control" id="inputStreet" name="street"
+                            [(ngModel)]="newUserAddress.street">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputNumber" class="form-label">Number</label>
+                        <input type="number" class="form-control" id="inputNumber" name="number"
+                            [(ngModel)]="newUserAddress.number">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputZipCode" class="form-label">Zip Code</label>
+                        <input type="number | text" class="form-control" id="inputZipCode" name="zipcode"
+                            [(ngModel)]="newUserAddress.zipcode">
+                    </div>
+
+                    <div class="col-md-12 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary col-3" (click)="addUser()">Sign in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

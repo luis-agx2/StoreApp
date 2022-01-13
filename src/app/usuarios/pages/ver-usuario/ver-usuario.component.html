@@ -1,1 +1,50 @@
-<p>ver-usuario works!</p>
+<div class="col-9 float-end px-4 m-sm-4 m-md-3" *ngIf="usuario">
+
+    <div class="d-flex flex-wrap">
+        <div class="card m-2">
+            <div class="card-body">
+                <h5 class="card-title">Información de cuenta</h5>
+
+                <p class="card-text text-muted">Email: <span class="text-dark">{{usuario.email}}</span></p>
+                <p class="card-text text-muted">Usuario: <span class="text-dark">{{usuario.username}}</span></p>
+            </div>
+        </div>
+
+        <div class="card m-2">
+            <div class="card-body">
+                <h5 class="card-title">Información personal</h5>
+
+                <p class="card-text text-muted">Nombre: <span class="text-dark">{{usuario.name.firstname | titlecase}}
+                        {{usuario.name.lastname | titlecase}}</span></p>
+                <p class="card-text text-muted">Telefono: <span class="text-dark">{{usuario.phone}}</span></p>
+            </div>
+        </div>
+
+        <div class="card m-2">
+            <div class="card-body">
+                <h5 class="card-title">Información de domicilio</h5>
+
+                <p class="card-text text-muted">Número: <span class="text-dark">{{usuario.address.number |
+                        number}}</span>
+                </p>
+                <p class="card-text text-muted">Calle: <span class="text-dark">{{usuario.address.street |
+                        titlecase}}</span>
+                </p>
+                <p class="card-text text-muted">Ciudad: <span class="text-dark">{{usuario.address.city |
+                        titlecase}}</span>
+                </p>
+                <p class="card-text text-muted">Código Postal: <span
+                        class="text-dark">{{usuario.address.zipcode}}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 d-flex justify-content-end">
+        <button type="button" class="btn btn-secondary me-2">Editar Usuario</button>
+        <button type="button" class="btn btn-secondary">Eliminar Usuario</button>
+    </div>
+
+
+    
+</div>

@@ -1,0 +1,20 @@
+<div class="col-9 float-end px-4">
+
+    <div *ngIf="!productos.length; else noVacia" class="alert alert-secondary" role="alert">
+        Espera un momento...
+    </div>
+
+    <ng-template #noVacia>
+
+        <div class="card m-1 col-9" *ngFor="let carrito of productos" [routerLink]="['/carritos/ver', carrito.id]">
+            <h5 class="card-title m-1">Carrito almacenado</h5>
+            <div class="card-body">
+                <small class="text-muted">Fecha: </small>{{carrito.date | date}}
+                <small class="text-muted">-  Clic para mas detalles</small>
+            </div>
+        </div>
+
+    </ng-template>
+
+
+</div>

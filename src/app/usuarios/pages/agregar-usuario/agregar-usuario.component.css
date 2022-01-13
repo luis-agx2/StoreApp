@@ -1,0 +1,17 @@
+.container{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.container .card{
+    border-radius: 25px;
+}
+
+.container .card .h4{
+    margin-bottom: 1px;
+    font-weight: 450;
+}
+
+.container .card label{
+    margin-bottom: 1px;
+}

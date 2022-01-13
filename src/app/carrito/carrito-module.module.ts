@@ -4,6 +4,9 @@ import { ListaCarritosComponent } from './pages/lista-carritos/lista-carritos.co
 import { VerCarritoComponent } from './pages/ver-carrito/ver-carrito.component';
 import { CarritoRoutingModule } from './carrito-routing.module';
 import { HomeCarritoComponent } from './pages/home-carrito/home-carrito.component';
+import { SharedModule } from '../shared/shared.module';
+import { SidebarCarritoComponent } from './componentes/sidebar-carrito/sidebar-carrito.component';
+import { ResultadosCarritoComponent } from './componentes/resultados-carrito/resultados-carrito.component';
 
 
 
@@ -11,11 +14,14 @@ import { HomeCarritoComponent } from './pages/home-carrito/home-carrito.componen
   declarations: [
     ListaCarritosComponent,
     VerCarritoComponent,
-    HomeCarritoComponent
+    HomeCarritoComponent,
+    SidebarCarritoComponent,
+    ResultadosCarritoComponent
   ],
   imports: [
     CommonModule,
-    CarritoRoutingModule
+    CarritoRoutingModule,
+    SharedModule
   ]
 })
 export class CarritoModule { }
