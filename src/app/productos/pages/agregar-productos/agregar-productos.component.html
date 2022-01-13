@@ -1,4 +1,9 @@
 <div class="col-9 float-end px-4 mt-2">
+
+    <div [class]="estilos" role="alert" *ngIf="mostrar">
+        {{mensaje}}
+    </div>
+
     <div class="row">
         <div class="mb-3 col-8">
             <label for="formGroupExampleInput" class="form-label">Titulo</label>
@@ -18,15 +23,14 @@
     <div class="row">
         <div class="mb-3 col-4">
             <label for="formGroupExampleInput" class="form-label">Precio</label>
-            <input type="text" class="form-control" id="formGroupExampleInput"
+            <input type="number" class="form-control" id="formGroupExampleInput"
                 name="price" [(ngModel)]="producto.price">
         </div>
 
         <div class="col-4">
             <label for="inputState" class="form-label">Categoría</label>
-            <select id="inputState" class="form-select" name="category" [(ngModel)]="producto.category">
-                <option selected>Choose...</option>
-                <option>...</option>
+            <select id="inputState" class="form-select" name="valor" [(ngModel)]="valor" (change)="capturar()">
+                <option *ngFor="let categoria of listaCategorias" [value]="categoria">{{categoria | titlecase}}</option>
             </select>
         </div>
     </div>

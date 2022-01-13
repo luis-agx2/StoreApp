@@ -12,6 +12,10 @@ import { UsuariosService } from '../../services/usuarios.service';
 })
 export class AgregarUsuarioComponent implements OnInit {
 
+  mostrar: boolean = false;
+  mensaje: string = '';
+  estilos: string = '';
+
   newUserGeolocation: Geolocation = {
     lat: '',
     long: ''
@@ -49,10 +53,57 @@ export class AgregarUsuarioComponent implements OnInit {
   }
 
   addUser() {
+
+    if (
+      !this.newUserName.lastname || !this.newUserName.firstname ||
+      !this.newUserAddress.city ||
+      !this.newUserAddress.street ||
+      !this.newUserAddress.zipcode ||
+      !this.newUser.email ||
+      !this.newUser.username ||
+      !this.newUser.password ||
+      !this.newUser.phone
+    ) {
+      this.estilos = 'alert alert-danger';
+      this.mensaje = 'Asegurate de llenar todos los campos';
+      this.mostrar = true;
+      return;
+    }
+
+
     this.usuariosService.postUsuario(this.newUser)
       .subscribe(data => {
+        this.estilos = 'alert alert-primary';
+        this.mensaje = 'Usuario Registrado';
+        this.mostrar = true;
         console.log(data);
       });
+
+    setTimeout(() => {
+      this.mostrar = false
+    }, 2000);
+
+    this.newUserName = {
+      firstname: '',
+      lastname: ''
+    }
+
+    this.newUserAddress = {
+      city: '',
+      street: '',
+      number: 0,
+      zipcode: '',
+      geolocation: this.newUserGeolocation
+    }
+
+    this.newUser = {
+      email: '',
+      username: '',
+      password: '',
+      name: this.newUserName,
+      address: this.newUserAddress,
+      phone: ''
+    }
   }
 
 }

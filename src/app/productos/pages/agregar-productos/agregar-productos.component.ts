@@ -8,6 +8,11 @@ import { ProductsService } from '../../services/products.service';
   styleUrls: ['./agregar-productos.component.css']
 })
 export class AgregarProductosComponent implements OnInit {
+  valor: string = '';
+  mostrar: boolean = false;
+  mensaje: string = '';
+  estilos: string = '';
+
   producto: ProductsResponse = {
     title: '',
     price: 0,
@@ -29,10 +34,30 @@ export class AgregarProductosComponent implements OnInit {
   }
 
   insertarProducto() {
+    if (
+      !this.producto.title ||
+      !this.producto.price ||
+      !this.producto.description ||
+      !this.producto.image ||
+      !this.producto.category
+    ) {
+      this.estilos = 'alert alert-danger col-8';
+      this.mensaje = 'Asegurate de llenar todos los campos';
+      this.mostrar = true;
+      return;
+    }
+
     this.productoService.postProducto(this.producto)
       .subscribe(data => {
+        this.estilos = 'alert alert-primary col-8';
+        this.mensaje = 'Producto Registrado';
+        this.mostrar = true;
         console.log(data);
       });
+
+    setTimeout(() => {
+      this.mostrar = false
+    }, 2000);
 
     this.producto = {
       title: '',
@@ -41,5 +66,9 @@ export class AgregarProductosComponent implements OnInit {
       image: '',
       category: ''
     }
+  }
+
+  capturar() {
+    this.producto.category = this.valor;
   }
 }

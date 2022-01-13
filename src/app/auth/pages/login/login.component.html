@@ -1,3 +1,7 @@
+<div class="alert alert-danger clo-8" role="alert" *ngIf="error">
+    Usuario o contraseña iconrrecta
+</div>
+
 <div class="container d-flex align-items-center justify-content-center">
     <div class="card">
         <div class="card-body">
@@ -21,10 +25,6 @@
             </div>
 
             <button class="btn btn-primary col-12 mt-3 mb-4" (click)="auth()">Sign in</button>
-            <!-- {{response | json}} -->
-            <small class="d-flex justify-content-end">
-                <p class="link-primary text-decoration-underline p-1" routerLink="">Continue without </p>
-            </small>
         </div>
     </div>
 </div>
