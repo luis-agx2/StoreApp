@@ -1,0 +1,12 @@
+.container {
+    width: 50%;
+    height: 100vh;
+}
+
+.container .card{
+    min-width: 15rem;
+}
+
+.container small p{
+    cursor: pointer;
+}

@@ -1,0 +1,30 @@
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="card">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="User name" name="username"
+                            [(ngModel)]="user.username">
+                        <label for="floatingInputGrid">User name</label>
+                    </div>
+
+                </div>
+
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="password" class="form-control" placeholder="Password" name="password"
+                            [(ngModel)]="user.password">
+                        <label for="floatingInputGrid">Password</label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary col-12 mt-3 mb-4" (click)="auth()">Sign in</button>
+            <!-- {{response | json}} -->
+            <small class="d-flex justify-content-end">
+                <p class="link-primary text-decoration-underline p-1" routerLink="">Continue without </p>
+            </small>
+        </div>
+    </div>
+</div>
